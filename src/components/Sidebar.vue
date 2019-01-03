@@ -41,7 +41,7 @@ export default {
         color: #e8e8e8;
         width: 10%;
         height: 100%;
-        border-right-color: #e8e8e8;
+        border-right-color:rgb(98, 86, 206);;
         border-right-width:2px;
         border-right-style: solid;
         float:left;
@@ -50,13 +50,14 @@ export default {
 
     button {
         width: 100%;
+        height: 10vh;
         background-color: transparent;
         color: #e8e8e8;
         font-size: 2rem;
         border: none;
         padding-top: 5px;
         padding-bottom: 3px;
-        border-bottom-color: #e8e8e8;
+        border-bottom-color:rgb(108, 55, 177);;
         border-bottom-width: 1px;
         border-bottom-style: solid;
     }
