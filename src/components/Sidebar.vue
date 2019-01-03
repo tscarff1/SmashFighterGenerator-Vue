@@ -1,7 +1,7 @@
 <template>
     <div class="sidebar">
         <button @click="getRandomFighter">
-            <font-awesome-icon icon="redo"></font-awesome-icon>
+            <font-awesome-icon icon="user-alt"></font-awesome-icon>
         </button>
         <button @click="showFighterList">
             <font-awesome-icon icon="list"></font-awesome-icon>
