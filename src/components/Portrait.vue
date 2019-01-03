@@ -20,17 +20,7 @@ export default {
     },
     computed: {
         getPortraitUrl() {
-            var url = require.context('../assets/portaits/', false, /\.jpg$/);
-            //This cleans out any spaces or periods
-            //var name = this.fighter.name.split('.').join('').split(' ').join('').split('-').join('');
-            return url('./SmashUlt_' + 'Lucario'+ '.jpg');
-        }
-    },
-    watch: {
-        fighter(val) {
-            setTimeout(500,() => {
-                this.showImg=true;
-            }); 
+            return this.$store.getters.portraitUrl;
         }
     }
 

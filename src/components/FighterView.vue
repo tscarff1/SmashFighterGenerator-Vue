@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="header">
-            <h2> You play {{$store.state.getFighterName}}!</h2>
+            <h2> You play {{$store.getters.fighterName}}!</h2>
         </div>
         <div class="body">
             <Portrait></Portrait>

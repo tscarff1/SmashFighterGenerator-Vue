@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import axios from 'axios'
 Vue.use(Vuex)
 
 const state = {
@@ -15,6 +15,17 @@ const getters = {
             return state.fighter.name;
         else
             return null;
+    },
+    portraitUrl: (state) => {
+        var url = require.context('../assets/portaits/', false, /\.jpg$/);
+        //This cleans out any spaces or periods
+        
+        if(state.fighter == null)
+            return '';
+        else {
+            var name = state.fighter.name.split('.').join('').split(' ').join('').split('-').join('');
+            return url('./SmashUlt_' + name + '.jpg');
+        }
     }
 }
 

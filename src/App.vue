@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     getRandomFighter() {
-      
+      this.$store.dispatch('generateFighter');
     }
   }
 }
