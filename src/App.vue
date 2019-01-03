@@ -2,14 +2,14 @@
   <div id="app">
       <sidebar></sidebar>
     <div id="app-container">
-          <fighter-view></fighter-view>
+      <transition name="component">
+          <fighter-view v-if="$store.state.currentDisplay == 'FIGHTER'"></fighter-view>
+      </transition>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import Portrait from './components/Portrait.vue'
 import FighterView from './components/FighterView.vue'
 import FighterList from './components/FighterList.vue'
 import Sidebar from './components/Sidebar.vue'
@@ -64,5 +64,14 @@ html {
   position: absolute;
   width: 90%;
   margin-left: 10%;
+}
+
+.component-enter-active {
+  margin-left: 0%;
+  transition: margin-left .5s;
+}
+
+.component-enter {
+  margin-left: 100%;
 }
 </style>
