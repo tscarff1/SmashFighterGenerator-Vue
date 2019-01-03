@@ -2,7 +2,7 @@
     <div style="border: 2px solid red; padding: 5px">
         <div style="display:block; width:100%; overflow-y:hidden">
             <div v-for="(fighter, ind) in fighters" :key="fighter.name" >
-                <div style="width:33%; float:left;">
+                <div class="fighter-list-item" style="width:33%; float:left;">
                     {{fighter.name}}
                     <input type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "selectedIds">
                 </div>
@@ -56,5 +56,18 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .fighter-list-item {
+        color: white;
+        font-size: 1.2em;
+    }
+
+    input {
+        width: 20px;
+        height: 20px;
+        float:right;
+    }
+</style>
 
 
