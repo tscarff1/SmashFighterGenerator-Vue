@@ -5,6 +5,9 @@
       <transition name="component">
           <fighter-view v-if="$store.state.currentDisplay == 'FIGHTER'"></fighter-view>
       </transition>
+      <transition name="component">
+          <info v-if="$store.state.currentDisplay == 'INFO'"></info>
+      </transition>
     </div>
   </div>
 </template>
@@ -12,14 +15,15 @@
 <script>
 import FighterView from './components/FighterView.vue'
 import FighterList from './components/FighterList.vue'
+import Info from './components/Info.vue'
 import Sidebar from './components/Sidebar.vue'
 export default {
   name: 'app',
   components: {
-    Portrait,
     FighterList,
     Sidebar,
-    FighterView
+    FighterView,
+    Info
   }, 
   data() {
     return {
