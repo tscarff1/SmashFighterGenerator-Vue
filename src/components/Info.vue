@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="info-container">
         <h3>App built by Tyler Scarff</h3>
         <p>/u/BroDudeIII on reddit</p>
@@ -10,6 +11,7 @@
         <h3>Smash Bros Ultimate © Nintendo / HAL Laboratory, Inc.</h3>
         <p>Thanks for such an amazing game!</p>
     </div>
+</div>
 </template>
 
 <script>
@@ -20,11 +22,10 @@ export default {
 
 <style scoped>
     .info-container {
-        margin: auto;
+        margin-left: 5vw;
         margin-top: 5vh;
         width: 80vw;
         height: 90vh;
-        margin-right: 5vw;
         background-color: #b3b3b3;
         color: black;
         border-style: solid;

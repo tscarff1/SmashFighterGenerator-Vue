@@ -2,10 +2,13 @@
   <div id="app">
       <sidebar></sidebar>
     <div id="app-container">
-      <transition name="component">
+      <transition name="fighter">
           <fighter-view v-if="$store.state.currentDisplay == 'FIGHTER'"></fighter-view>
       </transition>
-      <transition name="component">
+      <transition name="list">
+        <fighter-list v-if="$store.state.currentDisplay == 'FIGHTER_LIST'"></fighter-list>
+      </transition>
+      <transition name="info">
           <info v-if="$store.state.currentDisplay == 'INFO'"></info>
       </transition>
     </div>
@@ -70,12 +73,30 @@ html {
   margin-left: 10%;
 }
 
-.component-enter-active {
+.fighter-enter-active {
   margin-left: 0%;
   transition: margin-left .5s;
 }
 
-.component-enter {
+.fighter-enter {
+  margin-left: 100%;
+}
+
+.list-enter-active {
+  margin-left: 0%;
+  transition: margin-left .5s;
+}
+
+.list-enter {
+  margin-left: 100%;
+}
+
+.info-enter-active {
+  margin-left: 0%;
+  transition: margin-left .5s;
+}
+
+.info-enter {
   margin-left: 100%;
 }
 </style>
