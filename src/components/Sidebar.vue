@@ -40,6 +40,7 @@ export default {
         background-color: #212121;
         color: #e8e8e8;
         width: 10%;
+        min-width: 100px;
         height: 100%;
         border-right-color:rgb(98, 86, 206);;
         border-right-width:2px;
@@ -51,6 +52,7 @@ export default {
     button {
         width: 100%;
         height: 10vh;
+        min-height: 60px;
         background-color: transparent;
         color: #e8e8e8;
         font-size: 2rem;
