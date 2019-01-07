@@ -67,12 +67,27 @@ html {
   height: 100%;
 }
 
-#app-container {
-  position: absolute;
-  width: 90%;
-  margin-left: 10%;
+@media only screen and (max-width: 320px) {
+  #app-container {
+    position: absolute;
+    width: 220px;
+    margin-left: 100px;
+
+  }
 }
 
+@media only screen and (min-width: 321px) {
+  #app-container {
+    position: absolute;
+    width: 90vw;
+    margin-left: 10vw;
+
+  }
+}
+
+/* -------------------------------------------------- */
+/* Animations */
+/* -------------------------------------------------- */
 .fighter-enter-active {
   margin-left: 0%;
   transition: margin-left .5s;

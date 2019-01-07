@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div :class="{'desktop-portrait': !$store.state.isMobile, 'mobile-portrait': $store.state.isMobile, 'portrait': true}">
+    <div :class="{'portrait-border': true, 'portrait': true}">
         <transition name="portrait">
             <img v-if="showImg" alt="Selected Fighter" :src="getPortraitUrl" class="portrait-img">
         </transition>
@@ -28,22 +28,22 @@ export default {
 </script>
 
 <style scoped>
-    .mobile-portrait {
-        width: 30px;
+    .portrait-border {
+        width: 21vw;
+        min-width: 170px;
         height: auto;
-    }
-    .desktop-portrait {
-        height: auto;
+        margin: auto;
         
-        width: 350px;
         border: solid #555555 8px;
         border-radius: 15px;
         background-color: #151515;
     }
 
+    
+
     .portrait-img {
         margin: auto;
-        width: 90%;
+        width: 20vw;min-width: 150px;
         padding-top: 3%;
         padding-bottom: 3%;
     }
