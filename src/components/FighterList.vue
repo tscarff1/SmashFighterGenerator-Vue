@@ -1,13 +1,20 @@
 <template>
     <div>
         <div class="header">
-            
+
+            <div class="header-item">
+                <input type="checkbox" class="header-checkbox"> 
+                <label style="margin-top:">Group By Series</label>
+            </div>
+            <div class="header-item">
+                <button class="header-button">Select All</button>
+            </div>
         </div>
         <div style="display:block; width:100%;">
             <div v-for="(fighter, ind) in fighters" :key="fighter.name" >
                 <div class="fighter-list-item" style="width:33%; float:left;">
                     {{fighter.name}}
-                    <input type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "selectedIds">
+                    <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "selectedIds">
                 </div>
             </div>
         </div>
@@ -63,17 +70,35 @@ export default {
         font-size: 1.2em;
     }
 
-    input {
+    .list-checkbox {
         width: 20px;
         height: 20px;
         float:right;
     }
     .header {
-        height: 6vh;
-        background-color: #8b8b8b;
+        height: 5vh;
+        background-color: #b4b4b4;
         border-bottom-style: solid;
         border-bottom-color: rgb(98, 86, 206);
         margin-bottom: 1vw;
+        font-size: 1.3em;
+    }
+
+    .header-checkbox {
+        margin-top: 5px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-item {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .header-button {
+        border-radius: 5px;
+        font-size: 1em;
     }
 </style>
 
