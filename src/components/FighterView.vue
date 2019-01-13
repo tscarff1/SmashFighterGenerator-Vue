@@ -1,8 +1,11 @@
 <template>
     <div>
+        <transition name="header">
         <div class="header">
-            <h2> You play {{$store.getters.fighterName}}!</h2>
+            <h2> You play: </h2>
+            <h2 class="fighter-text">{{$store.getters.fighterName | uppercase}}</h2>
         </div>
+        </transition>
         <div class="body">
             <Portrait></Portrait>
         </div>
