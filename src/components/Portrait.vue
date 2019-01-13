@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div :class="{'portrait-border': true, 'portrait': true}">
+    <div class="portrait-border">
         <transition name="portrait">
             <img v-if="showImg" alt="Selected Fighter" :src="getPortraitUrl" class="portrait-img">
         </transition>
@@ -48,11 +48,5 @@ export default {
         padding-bottom: 3%;
     }
 
-    .portrait {
-        margin: auto;
-    }
 
-    .portrait-enter-active {
-        transition: all 1s;
-    }
 </style>
