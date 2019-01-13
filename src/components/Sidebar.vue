@@ -40,7 +40,7 @@ export default {
         background-color: #212121;
         color: #e8e8e8;
         width: 10vw;
-        min-width: 100px;
+        min-width: 80px;
         height: 100%;
         border-right-color:rgb(98, 86, 206);;
         border-right-width:2px;
