@@ -27,3 +27,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+# SmashFighterGenerator-Vue
+Front End for the Smash Fighter Generator
