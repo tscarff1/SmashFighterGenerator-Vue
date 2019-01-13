@@ -90,11 +90,13 @@ html {
 /* -------------------------------------------------- */
 .fighter-enter-active {
   margin-left: 0%;
-  transition: margin-left .5s;
+  transition: margin-left .5s, opacity .5s;
+  opacity: 1;
 }
 
 .fighter-enter {
   margin-left: 100%;
+  opacity: 0;
 }
 
 .list-enter-active {
