@@ -67,11 +67,12 @@ html {
   height: 100%;
 }
 
+/* For mobile view, side bar / main view need different proportions*/
 @media only screen and (max-width: 320px) {
   #app-container {
     position: absolute;
-    width: 220px;
-    margin-left: 100px;
+    width: 240px;
+    margin-left: 80px;
 
   }
 }

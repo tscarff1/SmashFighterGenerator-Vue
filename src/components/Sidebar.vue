@@ -42,7 +42,7 @@ export default {
         width: 10vw;
         min-width: 80px;
         height: 100%;
-        border-right-color:rgb(98, 86, 206);;
+        border-right-color:rgb(98, 86, 206);
         border-right-width:2px;
         border-right-style: solid;
         float:left;
@@ -59,7 +59,7 @@ export default {
         border: none;
         padding-top: 5px;
         padding-bottom: 3px;
-        border-bottom-color:rgb(108, 55, 177);;
+        border-bottom-color:rgb(108, 55, 177);
         border-bottom-width: 1px;
         border-bottom-style: solid;
     }
