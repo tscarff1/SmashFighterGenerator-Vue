@@ -32,5 +32,9 @@ export default {
     .body {
         width: 100%;
     }
+
+    .fighter-text {
+        white-space: nowrap;
+    }
 </style>
 

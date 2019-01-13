@@ -29,7 +29,7 @@ export default {
 
 <style scoped>
     .portrait-border {
-        width: 21vw;
+        width: 20vw;
         min-width: 170px;
         height: auto;
         margin: auto;
@@ -43,7 +43,7 @@ export default {
 
     .portrait-img {
         margin: auto;
-        width: 20vw;min-width: 150px;
+        width:19vw;min-width: 150px;
         padding-top: 3%;
         padding-bottom: 3%;
     }

@@ -11,7 +11,7 @@
             </div>
         </div>
         <div style="display:block; width:100%;">
-            <div v-for="(fighter, ind) in fighters" :key="fighter.name" >
+            <div v-for="fighter in fighters" :key="fighter.name" >
                 <div class="fighter-list-item" style="width:33%; float:left;">
                     {{fighter.name}}
                     <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "selectedIds">
