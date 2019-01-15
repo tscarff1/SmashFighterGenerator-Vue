@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const state = {
     fighter: null,
-    isMobile: false,
+    isMobile: false, //Not currently used for anything. I'm leaving it in case I ever do use it
     currentDisplay: 'FIGHTER',
     selectedFighters: [],
 }
@@ -43,17 +43,12 @@ const mutations = {
     setSelectedFighters:(state, fighters) => {
         state.selectedFighters = fighters;
     },
-    selectFighter: (state, fighterId) => {
-        state.selectedFighters.push(fighterId);
-    },
-    deselectFighter: (state, fighterId) => {
-        //This loops through the selected fighters until it finds a match for the fighter name and removes the fighter at that index
-        for(var ind in state.selectedFighters) {
-            if(state.selectedFighters[ind] == fighterId) {
-                state.selectedFighters.splice(ind,1);
-                break; // Stop from looping through the rest of the fighters
+    generateFighter:(state) => {
+        axios.post('/random/single/in',state.selectedFighters).then(
+            (response) => {
+                state.fighter = response.data;
             }
-        }
+        );
     }
 }
 
@@ -74,11 +69,7 @@ const actions = {
         commit('setCurrentDisplay', display);
     },
     generateFighter: ({commit}) => {
-        axios.get('/random/single').then(
-            (response) => {
-             commit('setFighter',response.data);
-            }
-          );
+        commit('generateFighter');
     },
     setSelectedFighters: ({commit}, fighterList) => {
         commit('setSelectedFighters', fighterList);
