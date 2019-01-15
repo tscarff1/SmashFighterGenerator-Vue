@@ -60,6 +60,12 @@ export default {
                 }
             )
         }
+    },
+    watch: {
+        selectedIds: function(oldList, newList) {
+            console.log(newList);
+            this.$store.dispatch('setSelectedFighters', newList);
+        }
     }
 }
 </script>

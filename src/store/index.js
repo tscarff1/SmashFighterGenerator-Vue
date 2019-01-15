@@ -7,6 +7,7 @@ const state = {
     fighter: null,
     isMobile: false,
     currentDisplay: 'FIGHTER',
+    selectedFighters: [],
 }
 
 const getters = {
@@ -38,6 +39,21 @@ const mutations = {
     },
     setCurrentDisplay: (state, display) => {
         state.currentDisplay = display;
+    },
+    setSelectedFighters:(state, fighters) => {
+        state.selectedFighters = fighters;
+    },
+    selectFighter: (state, fighterId) => {
+        state.selectedFighters.push(fighterId);
+    },
+    deselectFighter: (state, fighterId) => {
+        //This loops through the selected fighters until it finds a match for the fighter name and removes the fighter at that index
+        for(var ind in state.selectedFighters) {
+            if(state.selectedFighters[ind] == fighterId) {
+                state.selectedFighters.splice(ind,1);
+                break; // Stop from looping through the rest of the fighters
+            }
+        }
     }
 }
 
@@ -63,6 +79,9 @@ const actions = {
              commit('setFighter',response.data);
             }
           );
+    },
+    setSelectedFighters: ({commit}, fighterList) => {
+        commit('setSelectedFighters', fighterList);
     }
 }
 
