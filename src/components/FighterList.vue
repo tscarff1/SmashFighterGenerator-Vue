@@ -60,7 +60,6 @@ export default {
     watch: {
         selectedIds: function(newList, oldList) {
             this.$store.dispatch('setSelectedFighters', newList);
-            console.log(newList);
         }
     }
 }
