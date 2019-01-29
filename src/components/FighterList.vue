@@ -11,7 +11,7 @@
             </div>
         </div>
         <div style="display:block; width:100%;">
-            <div v-for="fighter in fighters" :key="fighter.name" >
+            <div v-for="fighter in $store.state.allFighters" :key="fighter.name" >
                 <div class="fighter-list-item" style="width:33%; float:left;">
                     {{fighter.name}}
                     <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "selectedIds">
@@ -33,16 +33,12 @@ export default {
     data() {
         return {
             fighters: [],
-            selectedIds: []
+            selectedIds: this.$store.state.selectedFighters
         }
     },
     created() {
-        axios.get('/data/fighters').then(
-            (response) => {
-                this.fighters = response.data;
-                this.selectAll();
-            }
-        );
+        this.fighters = this.$store.state.allFighters;
+        this.fighters = this.$store.state.selectedFighters;
     },
     methods: {
         selectAll() {

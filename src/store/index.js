@@ -8,6 +8,7 @@ const state = {
     isMobile: false, //Not currently used for anything. I'm leaving it in case I ever do use it
     currentDisplay: 'FIGHTER',
     selectedFighters: [],
+    allFighters: []
 }
 
 const getters = {
@@ -49,6 +50,9 @@ const mutations = {
                 state.fighter = response.data;
             }
         );
+    },
+    setAllFighters: (state, allFighters) => {
+        state.allFighters = allFighters;
     }
 }
 
@@ -73,6 +77,9 @@ const actions = {
     },
     setSelectedFighters: ({commit}, fighterList) => {
         commit('setSelectedFighters', fighterList);
+    },
+    setAllFighters: ({commit}, allFighters) => {
+        commit('setAllFighters', allFighters);
     }
 }
 

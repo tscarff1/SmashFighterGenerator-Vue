@@ -20,6 +20,7 @@ import FighterView from './components/FighterView.vue'
 import FighterList from './components/FighterList.vue'
 import Info from './components/Info.vue'
 import Sidebar from './components/Sidebar.vue'
+import axios from 'axios'
 export default {
   name: 'app',
   components: {
@@ -33,8 +34,13 @@ export default {
       isMobile: false
     }
   },
-  mounted() {
+  created() {
     this.$store.dispatch('determineIfMobile');
+    axios.get('/data/fighters').then(
+      (response) => {
+        this.$store.dispatch('setAllFighters', response.data);
+      }
+    );
     this.getRandomFighter();
   },
   methods: {
