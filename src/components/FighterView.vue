@@ -4,7 +4,7 @@
         <button class="refresh-button" @click="$store.dispatch('generateFighter')"><font-awesome-icon icon="redo"></font-awesome-icon></button>
         <div class="header">
             <h2> You play: </h2>
-            <h2 class="fighter-text">{{$store.getters.fighterName | uppercase}}</h2>
+            <h2 class="fighter-text">{{$store.getters.fighterName}}</h2>
         </div>
         <div class="body">
             <Portrait></Portrait>
