@@ -58,8 +58,9 @@ export default {
         }
     },
     watch: {
-        selectedIds: function(oldList, newList) {
+        selectedIds: function(newList, oldList) {
             this.$store.dispatch('setSelectedFighters', newList);
+            console.log(newList);
         }
     }
 }
