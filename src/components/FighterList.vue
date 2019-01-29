@@ -3,26 +3,21 @@
         <div class="header">
 
             <div class="header-item">
-                <input type="checkbox" class="header-checkbox"> 
-                <label style="margin-top:">Group By Series</label>
+                <input type="checkbox" class="header-checkbox" />
+                <label style="padding-bottom:5px">Group By Series</label>
             </div>
             <div class="header-item">
-                <button class="header-button">Select All</button>
+                <button class="header-button" v-if="!allSelected()" @click="selectAll">Select All</button>
+                <button class="header-button" v-if="allSelected()" @click="deselectAll">Deselect All</button> 
             </div>
         </div>
         <div style="display:block; width:100%;">
             <div v-for="fighter in $store.state.allFighters" :key="fighter.name" >
                 <div class="fighter-list-item" style="width:33%; float:left;">
                     {{fighter.name}}
-                    <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "selectedIds">
+                    <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model="selectedIds">
                 </div>
             </div>
-        </div>
-        <br />
-        <div style="display:block; width:100%;">
-            <button @click="deselectAll">Deselect All</button>
-            <button @click="selectAll">Select All</button>
-            <button @click="getFighterInSelectedIds">Submit</button>
         </div>
     </div>
 </template>
@@ -55,10 +50,21 @@ export default {
                     this.$emit('select-fighter', response.data);
                 }
             )
+        },
+        allSelected() {
+            return this.$store.state.selectedFighters.length == this.$store.state.allFighters.length;
+        },
+        selectAll() {
+            for(var ind in this.$store.state.allFighters) {
+                this.selectedIds.push(this.$store.state.allFighters[ind].id);
+            }
+        },
+        deselectAll() {
+            this.selectedIds = [];
         }
     },
     watch: {
-        selectedIds: function(newList, oldList) {
+        selectedIds: function(newList) {
             this.$store.dispatch('setSelectedFighters', newList);
         }
     }
@@ -72,12 +78,12 @@ export default {
     }
 
     .list-checkbox {
-        width: 20px;
-        height: 20px;
+        zoom: 1.5;
         float:right;
     }
     .header {
         height: 5vh;
+        min-height: 35px;
         background-color: #b4b4b4;
         border-bottom-style: solid;
         border-bottom-color: rgb(98, 86, 206);
@@ -87,6 +93,7 @@ export default {
 
     .header-checkbox {
         margin-top: 5px;
+        padding-top: 5px;
         width: 20px;
         height: 20px;
     }
