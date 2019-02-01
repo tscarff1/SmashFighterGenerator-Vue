@@ -1,6 +1,9 @@
 <template>
     <div>
-        <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected}">{{text}}</button>
+        <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected}">
+            {{text}}
+            <img v-if="selected" src="@/assets/smash-icon.png">
+        </button>
     </div>
 </template>
 <script>
@@ -45,14 +48,28 @@ export default {
 <style scoped>
     button {
         width: 300px;
-        height: 20px;
+        height: 5vh;
+        border-style: solid;
+        border-width:4px;
+        border-radius: 8px;
+        font-size: 1.1em;
+        
+        border-color: rgb(98, 86, 206);
+    }
+
+    img {
+        width: 20px;
+        height: auto;
+        float:right;
     }
 
     .unchecked {
-        background-color: gray;
+        background-color: rgb(48, 48, 48);
+        color: white;
     }
 
     .checked {
-        background-color: blue;
+        background-color: rgb(221, 221, 221);
+        color: rgb(98, 86, 206);
     }
 </style>
