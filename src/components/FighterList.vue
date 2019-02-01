@@ -4,18 +4,19 @@
 
             <div class="header-item">
                 <input type="checkbox" class="header-checkbox" />
-                <label style="padding-bottom:5px">Group By Series</label>
+                <label>Group By Series</label>
             </div>
             <div class="header-item">
                 <button class="header-button" v-if="!allSelected()" @click="selectAll">Select All</button>
                 <button class="header-button" v-if="allSelected()" @click="deselectAll">Deselect All</button> 
             </div>
         </div>
-        <div style="display:block; width:100%;">
+        <div class="body">
             <div v-for="fighter in $store.state.allFighters" :key="fighter.name" >
                 <div class="fighter-list-item" style="width:33%; float:left;">
-                    {{fighter.name}}
-                    <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model="selectedIds">
+                    <fighter-select :id="fighter.id" :value="fighter.id" v-model="selectedIds" :text="fighter.name">
+
+                    </fighter-select>
                 </div>
             </div>
         </div>
@@ -24,7 +25,11 @@
 
 <script>
 import axios from 'axios'
+import FighterSelect from './FighterSelect';
 export default {
+    components: {
+        FighterSelect
+    },
     data() {
         return {
             fighters: [],
@@ -37,9 +42,9 @@ export default {
     },
     methods: {
         selectAll() {
-            for(var ind in this.fighters) {
-                    this.selectedIds.push(this.fighters[ind].id);
-                }
+            for(var ind in this.$store.state.allFighters) {
+                this.selectedIds.push(this.$store.state.allFighters[ind].id);
+            }
         },
         deselectAll() {
             this.selectedIds = [];
@@ -54,14 +59,6 @@ export default {
         allSelected() {
             return this.$store.state.selectedFighters.length == this.$store.state.allFighters.length;
         },
-        selectAll() {
-            for(var ind in this.$store.state.allFighters) {
-                this.selectedIds.push(this.$store.state.allFighters[ind].id);
-            }
-        },
-        deselectAll() {
-            this.selectedIds = [];
-        }
     },
     watch: {
         selectedIds: function(newList) {
@@ -73,14 +70,9 @@ export default {
 
 <style scoped>
     .fighter-list-item {
-        color: white;
-        font-size: 1.2em;
+        margin-bottom: 10px
     }
 
-    .list-checkbox {
-        zoom: 1.5;
-        float:right;
-    }
     .header {
         height: 5vh;
         min-height: 35px;
@@ -108,6 +100,8 @@ export default {
         border-radius: 5px;
         font-size: 1em;
     }
+
+    
 </style>
 
 
