@@ -65,7 +65,7 @@ export default {
 
 body {
   height: 100%;
-  overflow: hidden !important;
+  overflow: hidden;
   margin: 0 0 0 0;
 }
 
