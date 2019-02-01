@@ -74,16 +74,14 @@ html {
 }
 
 /* For mobile view, side bar / main view need different proportions*/
-@media only screen and (max-width: 320px) {
-  #app-container {
+#app-container {
     position: absolute;
     width: 240px;
     margin-left: 80px;
 
   }
-}
 
-@media only screen and (min-width: 321px) {
+@media only screen and (min-width: 800px) {
   #app-container {
     position: absolute;
     width: 90vw;
