@@ -86,8 +86,11 @@ export default {
     @media only screen and (min-width: 800px) {
         button {
             width: 25vw;
-            padding: 2vw;
+            padding: .2vw;
+            padding-left: .5vw;
+            padding-right: .5vw;
             height: 3vw;
+            min-height: 40px;
         }
 
         .checked {
