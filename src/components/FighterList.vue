@@ -2,10 +2,6 @@
     <div>
         <div class="header">
             <div class="header-item">
-                <input type="checkbox" class="header-checkbox" />
-                <label>Group By Series</label>
-            </div>
-            <div class="header-item">
                 <button class="header-button" v-if="!allSelected" @click="selectAll">Select All</button>
                 <button class="header-button" v-if="allSelected" @click="deselectAll">Deselect All</button> 
             </div>
@@ -105,6 +101,7 @@ export default {
         border-bottom-color: rgb(98, 86, 206);
         margin-bottom: 1vw;
         font-size: 1.3em;
+        padding-top: 5px;
     }
 
     .header-checkbox {
