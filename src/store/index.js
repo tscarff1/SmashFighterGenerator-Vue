@@ -53,6 +53,9 @@ const mutations = {
     },
     setAllFighters: (state, allFighters) => {
         state.allFighters = allFighters;
+        for(var ind in allFighters) {
+            state.selectedFighters.push(allFighters[ind].id);
+        }
     }
 }
 
