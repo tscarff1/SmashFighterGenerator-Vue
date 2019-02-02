@@ -1,7 +1,9 @@
 <template>
     <div>
         <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected}">
-            {{text}}
+            <div class="btn-text">
+                {{text}}
+            </div>
             <img v-if="selected" src="@/assets/smash-icon.png">
         </button>
     </div>
@@ -47,18 +49,31 @@ export default {
 </script>
 <style scoped>
     button {
-        width: 300px;
-        height: 5vh;
+        width: 70vw;
+        height: 8vw;
         border-style: solid;
         border-width:4px;
         border-radius: 8px;
-        font-size: 1.1em;
-        
+        font-size: 1em;
         border-color: rgb(98, 86, 206);
     }
 
+    @media only screen and (min-width: 800px) {
+        button {
+            width: 25vw;
+            padding: 2vh;
+            height: 3vw;
+        }
+        
+    }
+    .btn-text {
+        width: 100%;
+        display:inline-block;
+    }
+
     img {
-        width: 20px;
+        margin-left: -25px;
+        width: 25px;
         height: auto;
         float:right;
     }
@@ -70,6 +85,8 @@ export default {
 
     .checked {
         background-color: rgb(221, 221, 221);
+        font-weight: bold;
+        font-size: 1.1em;
         color: rgb(98, 86, 206);
     }
 </style>

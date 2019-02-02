@@ -13,12 +13,13 @@
         </div>
         <div class="body">
             <div v-for="fighter in $store.state.allFighters" :key="fighter.name" >
-                <div class="fighter-list-item" style="width:33%; float:left;">
+                <div class="fighter-list-item">
                     <fighter-select :id="fighter.id" :value="fighter.id" v-model="selectedIds" :text="fighter.name">
 
                     </fighter-select>
                 </div>
             </div>
+            <div style="margin-bottom: 100px; height: 200px; width: 100%"></div>
         </div>
     </div>
 </template>
@@ -70,7 +71,26 @@ export default {
 
 <style scoped>
     .fighter-list-item {
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        width: 100%;
+        float: left;
+    }
+
+    .body {
+            height: 90vh;
+            overflow-y: auto;
+        }
+
+    @media only screen and (min-width: 800px) {
+        .fighter-list-item {
+            width: 33%;
+            float: left;
+        }
+
+        .body {
+            height: 90vh;
+            overflow-y: auto;
+        }
     }
 
     .header {

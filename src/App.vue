@@ -76,8 +76,8 @@ html {
 /* For mobile view, side bar / main view need different proportions*/
 #app-container {
     position: absolute;
-    width: 240px;
-    margin-left: 80px;
+    width: 80vw;
+    margin-left: 20vw;
 
   }
 
