@@ -1,14 +1,13 @@
 <template>
     <div>
         <div class="header">
-
             <div class="header-item">
                 <input type="checkbox" class="header-checkbox" />
                 <label>Group By Series</label>
             </div>
             <div class="header-item">
-                <button class="header-button" v-if="!allSelected()" @click="selectAll">Select All</button>
-                <button class="header-button" v-if="allSelected()" @click="deselectAll">Deselect All</button> 
+                <button class="header-button" v-if="!allSelected" @click="selectAll">Select All</button>
+                <button class="header-button" v-if="allSelected" @click="deselectAll">Deselect All</button> 
             </div>
         </div>
         <div class="body">
@@ -43,6 +42,8 @@ export default {
     },
     methods: {
         selectAll() {
+            //Start by clearing out the selected ids to prevent adding multiple
+            this.selectedIds = [];
             for(var ind in this.$store.state.allFighters) {
                 this.selectedIds.push(this.$store.state.allFighters[ind].id);
             }
@@ -56,16 +57,19 @@ export default {
                     this.$emit('select-fighter', response.data);
                 }
             )
-        },
-        allSelected() {
-            return this.$store.state.selectedFighters.length == this.$store.state.allFighters.length;
-        },
+        }
     },
     watch: {
         selectedIds: function(newList) {
             this.$store.dispatch('setSelectedFighters', newList);
         }
+    },
+    computed: {
+        allSelected() {
+            return this.selectedIds.length == this.$store.state.allFighters.length;
+        },
     }
+    
 }
 </script>
 
