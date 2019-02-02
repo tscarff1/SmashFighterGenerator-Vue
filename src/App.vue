@@ -8,6 +8,9 @@
       <transition name="list">
         <fighter-list v-if="$store.state.currentDisplay == 'FIGHTER_LIST'"></fighter-list>
       </transition>
+      <transition name="settings">
+        <settings v-if="$store.state.currentDisplay == 'SETTINGS'"> </settings>
+      </transition>
       <transition name="info">
           <info v-if="$store.state.currentDisplay == 'INFO'"></info>
       </transition>
@@ -19,6 +22,7 @@
 import FighterView from './components/FighterView.vue'
 import FighterList from './components/FighterList.vue'
 import Info from './components/Info.vue'
+import Settings from './components/Settings.vue';
 import Sidebar from './components/Sidebar.vue'
 import axios from 'axios'
 export default {
@@ -27,6 +31,7 @@ export default {
     FighterList,
     Sidebar,
     FighterView,
+    Settings,
     Info
   }, 
   data() {
