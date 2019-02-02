@@ -39,14 +39,19 @@ export default {
         position: absolute;
         background-color: #212121;
         color: #e8e8e8;
-        width: 10vw;
-        min-width: 80px;
+        width: 20vw;
         height: 100%;
         border-right-color:rgb(98, 86, 206);
         border-right-width:2px;
         border-right-style: solid;
         float:left;
         z-index: 100;
+    }
+
+    @media only screen and (min-width: 800px) {
+        .sidebar {
+            width: 10vw;
+        }
     }
 
     button {

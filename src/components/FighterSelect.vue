@@ -50,30 +50,23 @@ export default {
 <style scoped>
     button {
         width: 70vw;
-        height: 8vw;
+        height: 10vw;
         border-style: solid;
         border-width:4px;
         border-radius: 8px;
-        font-size: 1em;
+        font-size: .9em;
         border-color: rgb(98, 86, 206);
     }
 
-    @media only screen and (min-width: 800px) {
-        button {
-            width: 25vw;
-            padding: 2vh;
-            height: 3vw;
-        }
-        
-    }
+    
     .btn-text {
         width: 100%;
         display:inline-block;
     }
 
     img {
-        margin-left: -25px;
-        width: 25px;
+        margin-left: -20px;
+        width: 20px;
         height: auto;
         float:right;
     }
@@ -86,7 +79,28 @@ export default {
     .checked {
         background-color: rgb(221, 221, 221);
         font-weight: bold;
-        font-size: 1.1em;
+        font-size: 1em;
         color: rgb(98, 86, 206);
+    }
+
+    @media only screen and (min-width: 800px) {
+        button {
+            width: 25vw;
+            padding: 2vw;
+            height: 3vw;
+        }
+
+        .checked {
+            background-color: rgb(221, 221, 221);
+            font-weight: bold;
+            font-size: 1.1em;
+            color: rgb(98, 86, 206);
+        }
+        img {
+            margin-left: -25px;
+            width: 25px;
+            height: auto;
+            float:right;
+        }
     }
 </style>
