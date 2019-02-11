@@ -20,7 +20,8 @@ library.add(faInfoCircle, faCog, faList, faRedo, faUserAlt);
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
-Vue.axios.defaults.baseURL = 'http://localhost:8081/ssbr/api';
+//Vue.axios.defaults.baseURL = 'http://localhost:8081/ssbr/api';
+Vue.axios.defaults.baseURL = 'http://157.230.13.17:8080/ssbr-api/api';
 
 new Vue({
   render: h => h(App),
