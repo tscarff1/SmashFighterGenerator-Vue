@@ -19,14 +19,13 @@ const getters = {
             return null;
     },
     portraitUrl: (state) => {
-        var url = require.context('../assets/portaits/', false, /\.jpg$/);
+        var baseURL = process.env.BASE_URL;
         //This cleans out any spaces or periods
-        
         if(state.fighter == null)
             return '';
         else {
             var name = state.fighter.name.split('.').join('').split(' ').join('').split('-').join('');
-            return url('./SmashUlt_' + name + '.jpg');
+            return require('@/assets/portaits/SmashUlt_' + name + '.jpg');
         }
     }
 }
