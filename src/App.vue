@@ -70,12 +70,14 @@ export default {
 
 body {
   height: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
   margin: 0 0 0 0;
 }
 
 html {
   height: 100%;
+  overflow-y: hidden;
+  background-color: #212121;
 }
 
 /* For mobile view, side bar / main view need different proportions*/

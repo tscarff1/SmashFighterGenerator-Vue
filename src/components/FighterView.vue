@@ -47,7 +47,7 @@ export default {
         min-height: 50px;
     }
 /* Handle refresh button on different screen sizes*/
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 800px) {
   .refresh-button {
         width: 60px;
         height: 60px;
@@ -55,7 +55,7 @@ export default {
     }
 }
 
-@media only screen and (min-width: 321px) {
+@media only screen and (min-width: 800px) {
   .refresh-button {
         
         width: 7vw;
