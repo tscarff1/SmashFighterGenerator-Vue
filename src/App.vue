@@ -80,6 +80,11 @@ html {
   background-color: #212121;
 }
 
+/* Remove button outline on mobile */
+button:focus {
+  outline: 0;
+}
+
 /* For mobile view, side bar / main view need different proportions*/
 #app-container {
     position: absolute;
