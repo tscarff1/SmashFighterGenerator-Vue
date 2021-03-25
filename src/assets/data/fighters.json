@@ -1,0 +1,366 @@
+[{
+    "id": 1,
+    "character_number": 1,
+    "name": "Mario",
+    "series_id": 1
+}, {
+    "id": 2,
+    "character_number": 2,
+    "name": "Donkey Kong",
+    "series_id": 2
+}, {
+    "id": 3,
+    "character_number": 3,
+    "name": "Link",
+    "series_id": 3
+}, {
+    "id": 4,
+    "character_number": 4,
+    "name": "Samus",
+    "series_id": 4
+}, {
+    "id": 5,
+    "character_number": 4,
+    "name": "Dark Samus",
+    "echo_id": 4,
+    "series_id": 4
+}, {
+    "id": 6,
+    "character_number": 5,
+    "name": "Yoshi",
+    "series_id": 5
+}, {
+    "id": 7,
+    "character_number": 6,
+    "name": "Kirby",
+    "series_id": 6
+}, {
+    "id": 8,
+    "character_number": 7,
+    "name": "Fox",
+    "series_id": 7
+}, {
+    "id": 9,
+    "character_number": 8,
+    "name": "Pikachu",
+    "series_id": 8
+}, {
+    "id": 10,
+    "character_number": 9,
+    "name": "Luigi",
+    "series_id": 1
+}, {
+    "id": 11,
+    "character_number": 10,
+    "name": "Ness",
+    "series_id": 9
+}, {
+    "id": 12,
+    "character_number": 11,
+    "name": "Captain Falcon",
+    "series_id": 10
+}, {
+    "id": 13,
+    "character_number": 12,
+    "name": "Jigglypuff",
+    "series_id": 8
+}, {
+    "id": 14,
+    "character_number": 13,
+    "name": "Peach",
+    "series_id": 1
+}, {
+    "id": 15,
+    "character_number": 13,
+    "name": "Daisy",
+    "echo_id": 15,
+    "series_id": 1
+}, {
+    "id": 16,
+    "character_number": 14,
+    "name": "Bowser",
+    "series_id": 1
+}, {
+    "id": 17,
+    "character_number": 15,
+    "name": "Ice Climbers",
+    "series_id": 11
+}, {
+    "id": 18,
+    "character_number": 16,
+    "name": "Sheik",
+    "series_id": 3
+}, {
+    "id": 19,
+    "character_number": 17,
+    "name": "Zelda",
+    "series_id": 3
+}, {
+    "id": 20,
+    "character_number": 18,
+    "name": "Dr. Mario",
+    "series_id": 1
+}, {
+    "id": 21,
+    "character_number": 19,
+    "name": "Pichu",
+    "series_id": 8
+}, {
+    "id": 22,
+    "character_number": 20,
+    "name": "Falco",
+    "series_id": 7
+}, {
+    "id": 23,
+    "character_number": 21,
+    "name": "Marth",
+    "series_id": 12
+}, {
+    "id": 24,
+    "character_number": 21,
+    "name": "Lucina",
+    "series_id": 12
+}, {
+    "id": 25,
+    "character_number": 22,
+    "name": "Young Link",
+    "series_id": 3
+}, {
+    "id": 26,
+    "character_number": 23,
+    "name": "Ganondorf",
+    "series_id": 3
+}, {
+    "id": 27,
+    "character_number": 24,
+    "name": "Mewtwo",
+    "series_id": 8
+}, {
+    "id": 28,
+    "character_number": 25,
+    "name": "Roy",
+    "series_id": 12
+}, {
+    "id": 29,
+    "character_number": 25,
+    "name": "Chrom",
+    "echo_id": 29,
+    "series_id": 12
+}, {
+    "id": 30,
+    "character_number": 26,
+    "name": "Mr. Game & Watch",
+    "series_id": 13
+}, {
+    "id": 31,
+    "character_number": 27,
+    "name": "Meta Knight",
+    "series_id": 6
+}, {
+    "id": 32,
+    "character_number": 28,
+    "name": "Pit",
+    "series_id": 14
+}, {
+    "id": 33,
+    "character_number": 28,
+    "name": "Dark Pit",
+    "echo_id": 33,
+    "series_id": 14
+}, {
+    "id": 34,
+    "character_number": 29,
+    "name": "Zero Suit Samus",
+    "series_id": 3
+}, {
+    "id": 35,
+    "character_number": 30,
+    "name": "Wario",
+    "series_id": 15
+}, {
+    "id": 36,
+    "character_number": 31,
+    "name": "Snake",
+    "series_id": 16
+}, {
+    "id": 37,
+    "character_number": 32,
+    "name": "Ike",
+    "series_id": 12
+}, {
+    "id": 38,
+    "character_number": 33,
+    "name": "Pokémon",
+    "series_id": 8
+}, {
+    "id": 39,
+    "character_number": 36,
+    "name": "Diddy Kong",
+    "series_id": 2
+}, {
+    "id": 40,
+    "character_number": 37,
+    "name": "Lucas",
+    "series_id": 9
+}, {
+    "id": 41,
+    "character_number": 38,
+    "name": "Sonic",
+    "series_id": 17
+}, {
+    "id": 42,
+    "character_number": 39,
+    "name": "King Dedede",
+    "series_id": 6
+}, {
+    "id": 43,
+    "character_number": 40,
+    "name": "Olimar",
+    "series_id": 18
+}, {
+    "id": 44,
+    "character_number": 41,
+    "name": "Lucario",
+    "series_id": 8
+}, {
+    "id": 45,
+    "character_number": 42,
+    "name": "R.O.B.",
+    "series_id": 19
+}, {
+    "id": 46,
+    "character_number": 43,
+    "name": "Toon Link",
+    "series_id": 3
+}, {
+    "id": 47,
+    "character_number": 44,
+    "name": "Wolf",
+    "series_id": 7
+}, {
+    "id": 48,
+    "character_number": 45,
+    "name": "Villager",
+    "series_id": 20
+}, {
+    "id": 49,
+    "character_number": 46,
+    "name": "Mega Man",
+    "series_id": 21
+}, {
+    "id": 50,
+    "character_number": 47,
+    "name": "Wii Fii Trainer",
+    "series_id": 22
+}, {
+    "id": 51,
+    "character_number": 48,
+    "name": "Rosalina & Luma",
+    "series_id": 1
+}, {
+    "id": 52,
+    "character_number": 49,
+    "name": "Little Mac",
+    "series_id": 23
+}, {
+    "id": 53,
+    "character_number": 50,
+    "name": "Greninja",
+    "series_id": 8
+}, {
+    "id": 54,
+    "character_number": 51,
+    "name": "Mii Brawler",
+    "series_id": 24
+}, {
+    "id": 55,
+    "character_number": 52,
+    "name": "Mii Swordfighter",
+    "series_id": 24
+}, {
+    "id": 56,
+    "character_number": 53,
+    "name": "Mii Gunner",
+    "series_id": 24
+}, {
+    "id": 57,
+    "character_number": 54,
+    "name": "Palutena",
+    "series_id": 14
+}, {
+    "id": 58,
+    "character_number": 55,
+    "name": "Pac-Man",
+    "series_id": 25
+}, {
+    "id": 59,
+    "character_number": 56,
+    "name": "Robin",
+    "series_id": 12
+}, {
+    "id": 60,
+    "character_number": 57,
+    "name": "Shulk",
+    "series_id": 26
+}, {
+    "id": 61,
+    "character_number": 58,
+    "name": "Bowser Jr.",
+    "series_id": 1
+}, {
+    "id": 62,
+    "character_number": 59,
+    "name": "Duck Hunt Duo",
+    "series_id": 32
+}, {
+    "id": 63,
+    "character_number": 60,
+    "name": "Ryu",
+    "series_id": 27
+}, {
+    "id": 64,
+    "character_number": 61,
+    "name": "Cloud",
+    "series_id": 28
+}, {
+    "id": 65,
+    "character_number": 62,
+    "name": "Corrin",
+    "series_id": 12
+}, {
+    "id": 66,
+    "character_number": 63,
+    "name": "Bayonetta",
+    "series_id": 29
+}, {
+    "id": 67,
+    "character_number": 64,
+    "name": "Inkling",
+    "series_id": 30
+}, {
+    "id": 68,
+    "character_number": 65,
+    "name": "Ridley",
+    "series_id": 4
+}, {
+    "id": 69,
+    "character_number": 66,
+    "name": "Simon",
+    "series_id": 31
+}, {
+    "id": 70,
+    "character_number": 67,
+    "name": "King K. Rool",
+    "series_id": 2
+}, {
+    "id": 71,
+    "character_number": 68,
+    "name": "Isabelle",
+    "series_id": 20
+}, {
+    "id": 72,
+    "character_number": 69,
+    "name": "Incineroar",
+    "series_id": 8
+}
+]
