@@ -28,21 +28,17 @@
 </template>
 
 <script>
-import axios from 'axios'
+import  fighterList from '@/assets/data/fighters.json';
 export default {
     data() {
         return {
-            fighters: [],
+            fighters: fighterList,
             selectedIds: []
         }
     },
     created() {
-        axios.get('/data/fighters').then(
-            (response) => {
-                this.fighters = response.data;
-                this.selectAll();
-            }
-        );
+        // eslint-disable-next-line no-console
+        console.log(this.fighters);
     },
     methods: {
         selectAll() {
@@ -54,11 +50,8 @@ export default {
             this.selectedIds = [];
         },
         getFighterInSelectedIds() {
-            axios.post('/random/single/in',this.selectedIds).then(
-                (response) => {
-                    this.$emit('select-fighter', response.data);
-                }
-            )
+            let randomId = Math.floor(Math.random() * this.selectedIds.length);
+            this.$store.commit('setFighter', this.fighters[randomId]);
         }
     }
 }

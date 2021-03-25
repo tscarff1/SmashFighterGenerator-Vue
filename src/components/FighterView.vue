@@ -4,7 +4,7 @@
         <button class="refresh-button" @click="$store.dispatch('generateFighter')"><font-awesome-icon icon="redo"></font-awesome-icon></button>
         <div class="header">
             <h2> You play: </h2>
-            <h2 class="fighter-text">{{$store.getters.fighterName | uppercase}}</h2>
+            <h2 class="fighter-text">{{fighterNameUpper}}</h2>
         </div>
         <div class="body">
             <Portrait></Portrait>
@@ -17,6 +17,14 @@ import Portrait from '@/components/Portrait.vue'
 export default {
     components: {
         Portrait
+    },
+    computed: {
+        fighterNameUpper() {
+            if(this.$store.getters.fighterName == null)
+                return "";
+            else
+                return this.$store.getters.fighterName.toUpperCase();
+        }
     }
 }
 </script>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import  fighterList from '@/assets/data/fighters.json';
 Vue.use(Vuex)
 
 const state = {
@@ -11,7 +11,7 @@ const state = {
 
 const getters = {
     fighterName: (state) => {
-        if(state.fighter != null)
+        if(state.fighter && state.fighter.name)
             return state.fighter.name;
         else
             return null;
@@ -20,7 +20,7 @@ const getters = {
         var url = require.context('../assets/portaits/', false, /\.jpg$/);
         //This cleans out any spaces or periods
         
-        if(state.fighter == null)
+        if(!state.fighter || !state.fighter.name)
             return '';
         else {
             var name = state.fighter.name.split('.').join('').split(' ').join('').split('-').join('');
@@ -58,11 +58,7 @@ const actions = {
         commit('setCurrentDisplay', display);
     },
     generateFighter: ({commit}) => {
-        axios.get('/random/single').then(
-            (response) => {
-             commit('setFighter',response.data);
-            }
-          );
+        commit('setFighter',Math.floor(Math.random() * fighterList.length));
     }
 }
 
