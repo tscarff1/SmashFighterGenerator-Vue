@@ -6,7 +6,7 @@
           <fighter-view v-if="$store.state.currentDisplay == 'FIGHTER'"></fighter-view>
       </transition>
       <transition name="list">
-        <fighter-list v-if="$store.state.currentDisplay == 'FIGHTER_LIST'"></fighter-list>
+        <fighter-list ref="fighterList" v-if="$store.state.currentDisplay == 'FIGHTER_LIST'"></fighter-list>
       </transition>
       <transition name="info">
           <info v-if="$store.state.currentDisplay == 'INFO'"></info>
@@ -35,6 +35,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('determineIfMobile');
+    this.$store.dispatch('selectAllFighters');
     this.getRandomFighter();
   },
   methods: {
@@ -117,4 +118,5 @@ html {
 .info-enter {
   margin-left: 100%;
 }
+
 </style>

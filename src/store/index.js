@@ -7,6 +7,7 @@ const state = {
     fighter: null,
     isMobile: false,
     currentDisplay: 'FIGHTER',
+    selectedFighterIds: []
 }
 
 const getters = {
@@ -38,6 +39,9 @@ const mutations = {
     },
     setCurrentDisplay: (state, display) => {
         state.currentDisplay = display;
+    },
+    setSelectedFighterIds: (state, selectedIds) => {
+        state.selectedFighterIds = selectedIds;
     }
 }
 
@@ -57,8 +61,24 @@ const actions = {
     setCurrentDisplay: ({commit}, display) => {
         commit('setCurrentDisplay', display);
     },
-    generateFighter: ({commit}) => {
-        commit('setFighter',Math.floor(Math.random() * fighterList.length));
+    generateFighter: ({commit,state}) => {
+        let randomId = state.selectedFighterIds[Math.floor(Math.random() * state.selectedFighterIds.length)];
+        let fighter = null;
+        for(let itr of fighterList) {
+            if(itr.id == randomId)
+                fighter = itr;
+        }
+        commit('setFighter',fighter);
+    },
+    setSelectedFighterIds: ({commit}, selectedIds) => {
+        commit('setSelectedFighterIds', selectedIds);
+    },
+    selectAllFighters: ({commit}) => {
+        let allIds = [];
+        for(let ind in fighterList) {
+            allIds.push(ind);
+        }
+        commit('setSelectedFighterIds', allIds);
     }
 }
 
