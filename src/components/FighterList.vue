@@ -2,15 +2,13 @@
     <div>
         <div class="header header-height">
             <div class="header-item">
-               
                 <label >Select Fighters</label>
             </div>
         </div>
         <div style="height:100%; overflow:hidden; margin:0;">
             <div class="list-body">
                 <div v-for="fighter in fighters" :key="fighter.name" class="fighter-list-item" >
-                        {{fighter.name}}
-                        <input class="list-checkbox" type="checkbox" :id="fighter.id" :value="fighter.id" v-model = "$store.state.selectedFighterIds">
+                       <fighter-select :id="fighter.id" :fighterId="fighter.id" v-model="$store.state.selectedFighterIds" :text="fighter.name"> </fighter-select>
                 </div>
             </div>
         </div>
@@ -26,7 +24,11 @@
 
 <script>
 import  fighterList from '@/assets/data/fighters.json';
+import FighterSelect from '@/components/FighterSelect'
 export default {
+    components: {
+        FighterSelect
+    },
     data() {
         return {
             fighters: fighterList,
@@ -48,6 +50,7 @@ export default {
     .fighter-list-item {
         color: white;
         font-size: 1.2em;
+        margin-bottom: 5px;
     }
 
 
@@ -61,7 +64,7 @@ export default {
         display: block;
         overflow-y: auto;
         position: fixed;
-        bottom: 20px;
+        bottom: 45px;
         right: 0px;
     }
 
