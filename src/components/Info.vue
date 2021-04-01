@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="info-container info-container-x">
-        <h3>App built by Tyler Scarff</h3>
+        <h3>App built by Tyler Scarff - Work in Progress</h3>
         <p>/u/BroDudeIII on reddit</p>
         <br />
         <h3> Character portraits courtesy of /u/NightTide9 on reddit</h3>
