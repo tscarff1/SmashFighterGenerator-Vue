@@ -75,8 +75,8 @@ const actions = {
     },
     selectAllFighters: ({commit}) => {
         let allIds = [];
-        for(let ind in fighterList) {
-            allIds.push(ind);
+        for(let fighter of fighterList) {
+            allIds.push(fighter.id);
         }
         commit('setSelectedFighterIds', allIds);
     }
