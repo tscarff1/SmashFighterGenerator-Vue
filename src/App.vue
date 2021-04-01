@@ -72,8 +72,8 @@ html {
 @media only screen and (max-width: 320px) {
   #app-container {
     position: absolute;
-    width: 240px;
-    margin-left: 80px;
+    width: 250px;
+    margin-left: 70px;
 
   }
 }
@@ -86,6 +86,28 @@ html {
 
   }
 }
+
+.view-header {
+        background-color: #b4b4b4;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(98, 86, 206);
+        margin-bottom: 1vw;
+        padding-bottom: 5px;
+        font-size: 1.3em;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0px 10px 10px rgb(0, 0, 0);
+        white-space:nowrap;
+        overflow:hidden;
+    }
+
+.view-header-item {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+    }
+
 
 /* -------------------------------------------------- */
 /* Animations */
@@ -103,11 +125,13 @@ html {
 
 .list-enter-active {
   margin-left: 0%;
-  transition: margin-left .5s;
+  transition: all .5s;
+  opacity: 1;
 }
 
 .list-enter {
   margin-left: 100%;
+  opacity: 0;
 }
 
 .info-enter-active {

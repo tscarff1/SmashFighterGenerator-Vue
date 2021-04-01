@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="header header-height">
-            <div class="header-item">
+        <div class="view-header">
+            <div class="view-header-item">
                 <label >Select Fighters</label>
             </div>
         </div>
@@ -79,22 +79,8 @@ export default {
         right: 0px;
     }
 
-    .header {
-        background-color: #b4b4b4;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(98, 86, 206);
-        margin-bottom: 1vw;
-        padding-bottom: 5px;
-        font-size: 1.3em;
-        position: relative;
-        z-index: 10;
-        box-shadow: 0px 10px 10px rgb(0, 0, 0);
-    }
     /* Handle refresh button on different screen sizes*/
     @media only screen and (max-width: 600px) {
-        .header-height {
-            height: 30px;
-        }
 
         .fighter-list-item {
             width: 100%;
@@ -119,10 +105,7 @@ export default {
     }
 
     @media only screen and (min-width: 601px) {
-        .header-height {   
-            height: 1.5em;
-        }
-
+        
         .fighter-list-item {        
             width:33%; 
             display:inline-block;
@@ -144,13 +127,7 @@ export default {
         height: 20px;
     }
 
-    .header-item {
-        display: inline-block;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 5px;
-    }
-
+    
     .header-button {
         border-radius: 5px;
         font-size: 1em;
