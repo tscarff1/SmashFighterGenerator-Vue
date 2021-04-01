@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected}">
+        <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected, 'shadow': boxShadow}">
             <div class="btn-text">
                 {{text}}
             </div>
@@ -20,6 +20,9 @@ export default {
         },
         text: {
             type: String, required: true
+        },
+        boxShadow: {
+            type: Boolean, required: false, default: false
         }
     },
     data() {
@@ -30,9 +33,9 @@ export default {
     methods: {
         toggleSelect() {
             if(this.selected) {
-                this.fighters.splice(this.fighters.indexOf(String(this.fighterId)),1);   
+                this.fighters.splice(this.fighters.indexOf(this.fighterId),1);   
             } else {
-                this.fighters.push(String(this.fighterId));
+                this.fighters.push(this.fighterId);
             }
 
             this.$emit('input', this.fighters);
@@ -40,11 +43,8 @@ export default {
     },
     computed: {
         selected() {
-            return this.fighters.includes(String(this.fighterId));
+            return this.fighters.includes(this.fighterId);
         }
-    },
-    created() {
-
     },
     watch: {
         value: {
@@ -66,6 +66,7 @@ export default {
         border-radius: 8px;
         font-size: .9em;
         border-color: rgb(98, 86, 206);
+        cursor: pointer;
     }
 
     
@@ -115,5 +116,9 @@ export default {
             height: auto;
             float:right;
         }
+    }
+
+    .shadow {
+        box-shadow: 0px 5px 10px #37323b;
     }
 </style>

@@ -7,9 +7,14 @@
         </div>
         <div style="height:100%; overflow:hidden; margin:0;">
             <div class="list-body">
+            <div v-if="view == 'SERIES'">
+                <series-select v-for="series of allSeries" :key="series.id" :series="series"></series-select>
+            </div>
+            <div v-if="view == 'FIGHTERS'">
                 <div v-for="fighter in fighters" :key="fighter.name" class="fighter-list-item" >
-                       <fighter-select :id="fighter.id" :fighterId="fighter.id" v-model="$store.state.selectedFighterIds" :text="fighter.name"> </fighter-select>
+                        <fighter-select :id="fighter.id" :fighterId="fighter.id" v-model="$store.state.selectedFighterIds" :text="fighter.name"> </fighter-select>
                 </div>
+            </div>
             </div>
         </div>
         <br />
@@ -24,15 +29,20 @@
 
 <script>
 import  fighterList from '@/assets/data/fighters.json';
-import FighterSelect from '@/components/FighterSelect'
+import  seriesList from '@/assets/data/series.json';
+import FighterSelect from '@/components/FighterSelect';
+import SeriesSelect from '@/components/SeriesSelect';
 export default {
     components: {
-        FighterSelect
+        FighterSelect,
+        SeriesSelect
     },
     data() {
         return {
             fighters: fighterList,
-            selectedIds: []
+            selectedIds: [],
+            allSeries: seriesList,
+            view: 'SERIES'
         }
     },
     methods: {
@@ -63,6 +73,7 @@ export default {
     .list-body {
         display: block;
         overflow-y: auto;
+        overflow-x:hidden;
         position: fixed;
         bottom: 45px;
         right: 0px;
@@ -75,7 +86,9 @@ export default {
         margin-bottom: 1vw;
         padding-bottom: 5px;
         font-size: 1.3em;
-        box-shadow: 0px 2px 3px rgb(111, 99, 224);
+        position: relative;
+        z-index: 10;
+        box-shadow: 0px 10px 10px rgb(0, 0, 0);
     }
     /* Handle refresh button on different screen sizes*/
     @media only screen and (max-width: 600px) {
