@@ -6,10 +6,7 @@
           <fighter-view v-if="$store.state.currentDisplay == 'FIGHTER'"></fighter-view>
       </transition>
       <transition name="list">
-        <fighter-list v-if="$store.state.currentDisplay == 'FIGHTER_LIST'"></fighter-list>
-      </transition>
-      <transition name="settings">
-        <settings v-if="$store.state.currentDisplay == 'SETTINGS'"> </settings>
+        <fighter-list ref="fighterList" v-if="$store.state.currentDisplay == 'FIGHTER_LIST'"></fighter-list>
       </transition>
       <transition name="info">
           <info v-if="$store.state.currentDisplay == 'INFO'"></info>
@@ -22,16 +19,13 @@
 import FighterView from './components/FighterView.vue'
 import FighterList from './components/FighterList.vue'
 import Info from './components/Info.vue'
-import Settings from './components/Settings.vue';
 import Sidebar from './components/Sidebar.vue'
-import axios from 'axios'
 export default {
   name: 'app',
   components: {
     FighterList,
     Sidebar,
     FighterView,
-    Settings,
     Info
   }, 
   data() {
@@ -39,13 +33,9 @@ export default {
       isMobile: false
     }
   },
-  created() {
+  mounted() {
     this.$store.dispatch('determineIfMobile');
-    axios.get('/data/fighters').then(
-      (response) => {
-        this.$store.dispatch('setAllFighters', response.data);
-      }
-    );
+    this.$store.dispatch('selectAllFighters');
     this.getRandomFighter();
   },
   methods: {
@@ -70,30 +60,25 @@ export default {
 
 body {
   height: 100%;
-  overflow-y: hidden;
+  overflow: hidden !important;
   margin: 0 0 0 0;
 }
 
 html {
   height: 100%;
-  overflow-y: hidden;
-  background-color: #212121;
-}
-
-/* Remove button outline on mobile */
-button:focus {
-  outline: 0;
 }
 
 /* For mobile view, side bar / main view need different proportions*/
-#app-container {
+@media only screen and (max-width: 320px) {
+  #app-container {
     position: absolute;
-    width: 80vw;
-    margin-left: 20vw;
+    width: 240px;
+    margin-left: 80px;
 
   }
+}
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 321px) {
   #app-container {
     position: absolute;
     width: 90vw;
@@ -133,4 +118,5 @@ button:focus {
 .info-enter {
   margin-left: 100%;
 }
+
 </style>

@@ -1,112 +1,145 @@
 <template>
     <div>
-        <div class="header">
+        <div class="header header-height">
             <div class="header-item">
-                <button class="header-button" v-if="!allSelected" @click="selectAll">Select All</button>
-                <button class="header-button" v-if="allSelected" @click="deselectAll">Deselect All</button> 
+                <label >Select Fighters</label>
             </div>
         </div>
-        <div class="body">
-            <div v-for="fighter in $store.state.allFighters" :key="fighter.name" >
-                <div class="fighter-list-item">
-                    <fighter-select :id="fighter.id" :value="fighter.id" v-model="selectedIds" :text="fighter.name">
-
-                    </fighter-select>
+        <div style="height:100%; overflow:hidden; margin:0;">
+            <div class="list-body">
+            <div v-if="view == 'SERIES'">
+                <series-select v-for="series of allSeries" :key="series.id" :series="series"></series-select>
+            </div>
+            <div v-if="view == 'FIGHTERS'">
+                <div v-for="fighter in fighters" :key="fighter.name" class="fighter-list-item" >
+                        <fighter-select :id="fighter.id" :fighterId="fighter.id" v-model="$store.state.selectedFighterIds" :text="fighter.name"> </fighter-select>
                 </div>
             </div>
-            <div style="margin-bottom: 100px; height: 200px; width: 100%"></div>
+            </div>
+        </div>
+        <br />
+        <div class="footer">
+            <div>
+                <button @click="deselectAll" class="footer-button">Deselect All</button>
+                <button @click="selectAll" class="footer-button">Select All</button>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
-import FighterSelect from './FighterSelect';
+import  fighterList from '@/assets/data/fighters.json';
+import  seriesList from '@/assets/data/series.json';
+import FighterSelect from '@/components/FighterSelect';
+import SeriesSelect from '@/components/SeriesSelect';
 export default {
     components: {
-        FighterSelect
+        FighterSelect,
+        SeriesSelect
     },
     data() {
         return {
-            fighters: [],
-            selectedIds: this.$store.state.selectedFighters
+            fighters: fighterList,
+            selectedIds: [],
+            allSeries: seriesList,
+            view: 'SERIES'
         }
-    },
-    created() {
-        this.fighters = this.$store.state.allFighters;
-        this.fighters = this.$store.state.selectedFighters;
     },
     methods: {
         selectAll() {
-            //Start by clearing out the selected ids to prevent adding multiple
-            this.selectedIds = [];
-            for(var ind in this.$store.state.allFighters) {
-                this.selectedIds.push(this.$store.state.allFighters[ind].id);
-            }
+            this.$store.dispatch('selectAllFighters');
         },
         deselectAll() {
-            this.selectedIds = [];
-        },
-        getFighterInSelectedIds() {
-            axios.post('/random/single/in',this.selectedIds).then(
-                (response) => {
-                    this.$emit('select-fighter', response.data);
-                }
-            )
+            this.$store.dispatch('setSelectedFighterIds', []);
         }
-    },
-    watch: {
-        selectedIds: function(newList) {
-            this.$store.dispatch('setSelectedFighters', newList);
-        }
-    },
-    computed: {
-        allSelected() {
-            return this.selectedIds.length == this.$store.state.allFighters.length;
-        },
     }
-    
 }
 </script>
 
 <style scoped>
     .fighter-list-item {
-        margin-bottom: 10px;
-        width: 100%;
-        float: left;
+        color: white;
+        font-size: 1.2em;
+        margin-bottom: 5px;
     }
 
-    .body {
-            height: 90vh;
-            overflow-y: auto;
-        }
 
-    @media only screen and (min-width: 800px) {
-        .fighter-list-item {
-            width: 33%;
-            float: left;
-        }
+    .list-checkbox {
+        width: 20px;
+        height: 20px;
+        float:right;
+    }
 
-        .body {
-            height: 90vh;
-            overflow-y: auto;
-        }
+    .list-body {
+        display: block;
+        overflow-y: auto;
+        overflow-x:hidden;
+        position: fixed;
+        bottom: 45px;
+        right: 0px;
     }
 
     .header {
-        height: 5vh;
-        min-height: 35px;
         background-color: #b4b4b4;
         border-bottom-style: solid;
         border-bottom-color: rgb(98, 86, 206);
         margin-bottom: 1vw;
+        padding-bottom: 5px;
         font-size: 1.3em;
-        padding-top: 5px;
+        position: relative;
+        z-index: 10;
+        box-shadow: 0px 10px 10px rgb(0, 0, 0);
+    }
+    /* Handle refresh button on different screen sizes*/
+    @media only screen and (max-width: 600px) {
+        .header-height {
+            height: 30px;
+        }
+
+        .fighter-list-item {
+            width: 100%;
+            display:inline-block;
+            text-align:left;
+        }
+
+        .list-body {
+            top: 40px;
+            left: 80px;
+            padding: 2px;
+            padding-left: 4px;
+        }
+        .footer-button {
+            float:left;
+            width: 50%;
+        }
+
+        .footer {
+            left: 80px;
+        }
+    }
+
+    @media only screen and (min-width: 601px) {
+        .header-height {   
+            height: 1.5em;
+        }
+
+        .fighter-list-item {        
+            width:33%; 
+            display:inline-block;
+        }
+
+        .list-body {
+            top: 3em;
+            left: 10vw;
+        }
+
+        .footer {
+            left: 10vw;
+        }
     }
 
     .header-checkbox {
         margin-top: 5px;
-        padding-top: 5px;
         width: 20px;
         height: 20px;
     }
@@ -115,6 +148,7 @@ export default {
         display: inline-block;
         margin-left: 10px;
         margin-right: 10px;
+        margin-top: 5px;
     }
 
     .header-button {
@@ -122,7 +156,21 @@ export default {
         font-size: 1em;
     }
 
-    
+    .footer {
+        display: block;
+        position: fixed;
+        right:0;
+        bottom: 0px;
+        background-color: #b4b4b4;
+        border-top-style: solid;
+        border-top-color: rgb(98, 86, 206);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align:center;
+        height: 20px;
+        box-shadow: 0px -2px 3px rgb(111, 99, 224);
+    }
+
 </style>
 
 

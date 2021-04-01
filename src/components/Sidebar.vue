@@ -12,6 +12,8 @@
         <button @click="showInfo">
             <font-awesome-icon icon="info-circle"></font-awesome-icon>
         </button>
+
+        <div class="version-note">BETA-2.0.0 </div>
     </div>    
 </template>
 
@@ -67,9 +69,18 @@ export default {
         border-bottom-color:rgb(108, 55, 177);
         border-bottom-width: 1px;
         border-bottom-style: solid;
+        cursor: pointer;
     }
 
     button:hover {
         background-color:  #8a8a8a;
+    }
+
+    .version-note {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 3px;
+        font-size: .8rem;
     }
 </style>

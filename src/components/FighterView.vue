@@ -1,13 +1,20 @@
 <template>
     <div>
-        
-        <button class="refresh-button" @click="$store.dispatch('generateFighter')"><font-awesome-icon icon="redo"></font-awesome-icon></button>
-        <div class="header">
-            <h2> You play: </h2>
-            <h2 class="fighter-text">{{$store.getters.fighterName}}</h2>
+        <div v-if="$store.state.selectedFighterIds.length > 0">
+            <button class="refresh-button" @click="$store.dispatch('generateFighter')"><font-awesome-icon icon="redo"></font-awesome-icon></button>
         </div>
-        <div class="body">
-            <Portrait></Portrait>
+        
+        <div v-if="$store.state.selectedFighterIds.length == 0">
+            <h2 class=" header warning-text"> At least one fighter must be selected to generate another random fighter</h2>
+        </div>
+        <div v-if="$store.getters.fighterName != null">
+            <div class="header">
+                <h2 style="margin-bottom: 0px; padding-bottom: 0px"> You play: </h2>
+                <h2 class="fighter-text">{{fighterNameUpper}}</h2>
+            </div>
+            <div class="body">
+                <Portrait></Portrait>
+            </div>
         </div>
     </div>
 </template>
@@ -17,6 +24,14 @@ import Portrait from '@/components/Portrait.vue'
 export default {
     components: {
         Portrait
+    },
+    computed: {
+        fighterNameUpper() {
+            if(this.$store.getters.fighterName == null)
+                return "";
+            else
+                return this.$store.getters.fighterName.toUpperCase();
+        }
     }
 }
 </script>
@@ -35,6 +50,8 @@ export default {
 
     .fighter-text {
         white-space: nowrap;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .refresh-button {
@@ -47,15 +64,19 @@ export default {
         min-height: 50px;
     }
 /* Handle refresh button on different screen sizes*/
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 320px) {
   .refresh-button {
         width: 60px;
         height: 60px;
         font-size: 8vw;
     }
+
+    .warning-text {
+        font-size: 1em;
+    }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 321px) {
   .refresh-button {
         
         width: 7vw;
@@ -85,6 +106,11 @@ export default {
 .refresh-button :active {
     margin-top: 5px;
     margin-left: 5px;
+}
+
+.warning-text {
+    color:rgb(36, 129, 141);
+    margin-bottom: 7px;
 }
 </style>
 

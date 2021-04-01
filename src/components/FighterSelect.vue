@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected}">
+        <button @click="toggleSelect" :class="{'unchecked': !selected, 'checked': selected, 'shadow': boxShadow}">
             <div class="btn-text">
                 {{text}}
             </div>
@@ -11,38 +11,48 @@
 <script>
 export default {
     //Usually adding v-model on a component is the same as adding ':value=<val> @input="(emittedVal) => val = emittedVal"'
-    //But by specifying the model object, we change it to ':fighters=<val> @change="(emittedVal) => val = emittedVal"'
-    //I'm doing this because I like 'change' better than input
-    //... and, more importantly, we are using value for the value of this particular 'checkbox'
-    model: {
-        prop: 'fighters',
-        event: 'change'
-    },
     props: {
         value: { //The value of this specific checkbox
-            type: Number, required: true
+            type: Array, required: true
         },
-        fighters: {
+        fighterId: {
             default: []
         },
         text: {
             type: String, required: true
+        },
+        boxShadow: {
+            type: Boolean, required: false, default: false
+        }
+    },
+    data() {
+        return {
+            fighters: []
         }
     },
     methods: {
         toggleSelect() {
             if(this.selected) {
-                this.fighters.splice(this.fighters.indexOf(this.value),1);   
+                this.fighters.splice(this.fighters.indexOf(this.fighterId),1);   
             } else {
-                this.fighters.push(this.value);
+                this.fighters.push(this.fighterId);
             }
 
-            this.$emit('change', this.fighters);
+            this.$emit('input', this.fighters);
         }
     },
     computed: {
         selected() {
-            return this.fighters.includes(this.value);
+            return this.fighters.includes(this.fighterId);
+        }
+    },
+    watch: {
+        value: {
+            handler (newVal) {
+                this.fighters = newVal;
+            },
+            deep: true,
+            immediate: true
         }
     }
 }
@@ -56,6 +66,7 @@ export default {
         border-radius: 8px;
         font-size: .9em;
         border-color: rgb(98, 86, 206);
+        cursor: pointer;
     }
 
     
@@ -105,5 +116,9 @@ export default {
             height: auto;
             float:right;
         }
+    }
+
+    .shadow {
+        box-shadow: 0px 5px 10px #37323b;
     }
 </style>

@@ -1,31 +1,31 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import  fighterList from '@/assets/data/fighters.json';
 Vue.use(Vuex)
 
 const state = {
     fighter: null,
-    isMobile: false, //Not currently used for anything. I'm leaving it in case I ever do use it
+    isMobile: false,
     currentDisplay: 'FIGHTER',
-    selectedFighters: [],
-    allFighters: []
+    selectedFighterIds: []
 }
 
 const getters = {
     fighterName: (state) => {
-        if(state.fighter != null)
+        if(state.fighter && state.fighter.name)
             return state.fighter.name;
         else
             return null;
     },
     portraitUrl: (state) => {
-        var baseURL = process.env.BASE_URL;
+        var url = require.context('../assets/portaits/', false, /\.jpg$/);
         //This cleans out any spaces or periods
-        if(state.fighter == null)
+        
+        if(!state.fighter || !state.fighter.name)
             return '';
         else {
             var name = state.fighter.name.split('.').join('').split(' ').join('').split('-').join('');
-            return require('@/assets/portaits/SmashUlt_' + name + '.jpg');
+            return url('./SmashUlt_' + name + '.jpg');
         }
     }
 }
@@ -40,21 +40,8 @@ const mutations = {
     setCurrentDisplay: (state, display) => {
         state.currentDisplay = display;
     },
-    setSelectedFighters:(state, fighters) => {
-        state.selectedFighters = fighters;
-    },
-    generateFighter:(state) => {
-        axios.post('/random/single/in',state.selectedFighters).then(
-            (response) => {
-                state.fighter = response.data;
-            }
-        );
-    },
-    setAllFighters: (state, allFighters) => {
-        state.allFighters = allFighters;
-        for(var ind in allFighters) {
-            state.selectedFighters.push(allFighters[ind].id);
-        }
+    setSelectedFighterIds: (state, selectedIds) => {
+        state.selectedFighterIds = selectedIds;
     }
 }
 
@@ -74,14 +61,24 @@ const actions = {
     setCurrentDisplay: ({commit}, display) => {
         commit('setCurrentDisplay', display);
     },
-    generateFighter: ({commit}) => {
-        commit('generateFighter');
+    generateFighter: ({commit,state}) => {
+        let randomId = state.selectedFighterIds[Math.floor(Math.random() * state.selectedFighterIds.length)];
+        let fighter = null;
+        for(let itr of fighterList) {
+            if(itr.id == randomId)
+                fighter = itr;
+        }
+        commit('setFighter',fighter);
     },
-    setSelectedFighters: ({commit}, fighterList) => {
-        commit('setSelectedFighters', fighterList);
+    setSelectedFighterIds: ({commit}, selectedIds) => {
+        commit('setSelectedFighterIds', selectedIds);
     },
-    setAllFighters: ({commit}, allFighters) => {
-        commit('setAllFighters', allFighters);
+    selectAllFighters: ({commit}) => {
+        let allIds = [];
+        for(let fighter of fighterList) {
+            allIds.push(fighter.id);
+        }
+        commit('setSelectedFighterIds', allIds);
     }
 }
 
