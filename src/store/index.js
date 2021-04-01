@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import  fighterList from '@/assets/data/fighters.json';
+import {Settings} from './settings' 
 Vue.use(Vuex)
 
 const state = {
@@ -82,9 +83,14 @@ const actions = {
     }
 }
 
+const modules = {
+    settings: Settings
+}
+
 export default new Vuex.Store({
   state,
   getters,
   actions,
-  mutations
+  mutations,
+  modules
 })

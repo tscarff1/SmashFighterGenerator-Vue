@@ -10,7 +10,7 @@
             <div v-if="view == 'SERIES'">
                 <series-select v-for="series of allSeries" :key="series.id" :series="series"></series-select>
             </div>
-            <div v-if="view == 'FIGHTERS'">
+            <div v-if="view == 'NUMBER'">
                 <div v-for="fighter in fighters" :key="fighter.name" class="fighter-list-item" >
                         <fighter-select :id="fighter.id" :fighterId="fighter.id" v-model="$store.state.selectedFighterIds" :text="fighter.name"> </fighter-select>
                 </div>
@@ -41,8 +41,7 @@ export default {
         return {
             fighters: fighterList,
             selectedIds: [],
-            allSeries: seriesList,
-            view: 'SERIES'
+            allSeries: seriesList
         }
     },
     methods: {
@@ -51,6 +50,11 @@ export default {
         },
         deselectAll() {
             this.$store.dispatch('setSelectedFighterIds', []);
+        }
+    },
+    computed: {
+        view() {
+            return this.$store.state.settings.listView;
         }
     }
 }
