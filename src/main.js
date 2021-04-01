@@ -11,11 +11,11 @@ import VueAxios from 'vue-axios'
 import axios from 'axios'
 
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faInfoCircle, faCog, faList, faRedo, faUserAlt} from '@fortawesome/free-solid-svg-icons'
+import {faInfoCircle, faCog, faList, faRedo, faUserAlt, faAngleUp, faAngleDown} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-library.add(faInfoCircle, faCog, faList, faRedo, faUserAlt);
+library.add(faInfoCircle, faCog, faList, faRedo, faUserAlt, faAngleUp, faAngleDown);
 
 Vue.config.productionTip = false
 
